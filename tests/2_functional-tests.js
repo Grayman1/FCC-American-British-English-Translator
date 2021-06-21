@@ -9,110 +9,128 @@ let Translator = require('../components/translator.js');
 
 suite('Functional Tests', () => {
 
-  //Functional Test #1-
+  //Functional Test #1-Translation with text and locale fields: POST request to /api/translate
 /*
-  test('#1-', (done) => {
+  test('#1-Translation with text and locale fields: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+    .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
       assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })
 */
 
-  //Functional Test #2-
+  //Functional Test #2-Translation with text and invalid locale field: POST request to /api/translate
 /*
-  test('#2-', (done) => {
+  test('#2-Translation with text and invalid locale field: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+    .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
-      assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      assert.property(res.body, 'translation');
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })
 */
 
-  //Functional Test #3-
+  //Functional Test #3-Translation with missing text field: POST request to /api/translate
 /*
-  test('#3-', (done) => {
+  test('#3-Translation with missing text field: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+    .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
       assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })
 */
 
-  //Functional Test #4-
+  //Functional Test #4-Translation with missing locale field: POST request to /api/translate
 /*
-  test('#4-', (done) => {
+  test('#4-Translation with missing locale field: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+    .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
       assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })
 */
 
-  //Functional Test #5-
+  //Functional Test #5-Translation with empty text: POST request to /api/translate
 /*
-  test('#5-', (done) => {
+  test('#5-Translation with empty text: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+   .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
       assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })
 */
 
 
-  //Functional Test #6-
+  //Functional Test #6-Translation with text that needs no translation: POST request to /api/translate
 /*
-  test('#6-', (done) => {
+  test('#6-Translation with text that needs no translation: POST request to /api/translate', (done) => {
    chai
     .request(server)
-    .post('/api/solve')
-    .send({puzzle: validPuzzle})
+    .post('/api/translate')
+    .send({
+      text: '',
+      locale: '' 
+      })
     .end((err, res) => {        
       assert.equal(res.status, 200);
       assert.isObject(res.body);
       assert.property(res.body, 'solution');
-      let solvedPuzzle = puzzlesAndSolutions[1][1];
-      assert.equal(res.body.solution, solvedPuzzle);    
+      let translatedText = '';
+      assert.equal(res.body.translation, translatedText);    
       done();
     })
   })

@@ -5,257 +5,256 @@ const Translator = require('../components/translator.js');
 
 suite('Unit Tests', () => {
 
-  suite('Tranlation tests', () => {
-// Unit Test #1- Translate
-    test('#1 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+  suite('Translation tests', () => {
+/*
+// Unit Test #1- Translate Mangoes are my favorite fruit. to British English
+    test('#1 - Translate Mangoes are my favorite fruit to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #2- Translate
-    test('#2 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+
+// Unit Test #2- Translate I ate yogurt for breakfast to British English
+/*
+    test('#2 - Translate I ate yogurt for breakfast to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    });
+*/
 
-// Unit Test #3- Translate
-    test('#3 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+
+// Unit Test #3- We had a party at my friend's condo to British English
+/*
+    test('#3 - We had a party at my friend's condo to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #4- Translate
-    test('#4 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #4- Translate Can you toss this in the trashcan for me? to British English
+/*
+    test('#4 - Translate Can you toss this in the trashcan for me? to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #5- Translate
-    test('#5 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+
+// Unit Test #5- Translate The parking lot was full to British English
+/*
+    test('#5 - Translate The parking lot was full to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #6- Translate
-    test('#6 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #6- Translate Like a high tech Rube Goldberg machine to British English
+/*
+    test('#6 - Translate Like a high tech Rube Goldberg machine to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #7- Translate
-    test('#7 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #7- Translate To play hooky means to skip class or work to British English
+/*
+    test('#7 - Translate To play hooky means to skip class or work to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
 
-// Unit Test #8- Translate
-    test('#8 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #8- Translate No Mr. Bond, I expect you to die to British English
+/*
+    test('#8 - Translate No Mr. Bond, I expect you to die to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #9- Translate
-    test('#9 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #9- Translate Dr. Grosh will see you now to British English
+/*
+    test('#9 - Translate Dr. Grosh will see you now to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #10- Translate
-    test('#10 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #10- Translate Lunch is at 12:15 today to British English
+/*
+    test('#10 - Translate Lunch is at 12:15 today to British English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #11- Translate
-    test('#11 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #11- Translate We watched the footie match for a while to American English
+/*
+    test('#11 - Translate We watched the footie match for a while to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #12- Translate
-    test('#12 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #12- Translate Paracetamol takes up to an hour to work. to American English
+/*
+    test('#12 - Translate Paracetamol takes up to an hour to work to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-
-// Unit Test #13- Translate
-    test('#13 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #13- Translate First, caramelise the onions. to American English
+/*
+    test('#13 - Translate First, caramelise the onions. to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #14- Translate
-    test('#14 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #14- Translate I spent the bank holiday at the funfair. to American English
+/*
+    test('#14 - Translate I spent the bank holiday at the funfair. to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #15- Translate
-    test('#15 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #15- Translate I had a bicky then went to the chippy to American English
+/*
+    test('#15 - Translate I had a bicky then went to the chippy to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #16- Translate
-    test('#16 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #16- Translate I've just got bits and bobs in my bum bag to American English
+/*
+    test('#16 - Translate I've just got bits and bobs in my bum bag to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #17- Translate
-    test('#17 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #17- Translate The car boot sale at Boxted Airfield was called off. to American English
+/*
+    test('#17 - Translate The car boot sale at Boxted Airfield was called off. to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #18- Translate
-    test('#18 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #18- Translate Have you met Mrs Kalyani? to American English
+/*
+    test('#18 - Translate Have you met Mrs Kalyani? to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #19- Translate
-    test('#19 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #19- Translate Prof Joyner of King's College, London. to American English
+/*
+    test('#19 - Translate Prof Joyner of King's College, London. to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
+    })
+*/
 
-// Unit Test #20- Translate
-    test('#20 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+// Unit Test #20- Translate Tea time is usually around 4 or 4.30. to American English
+/*
+    test('#20 - Translate Tea time is usually around 4 or 4.30. to American English', (done) => {
+      let originalText = '';
+      let translatedText = ''; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
       done();
-      })
-
-
-// Unit Test #21- Translate
-    test('#21 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
-
-// Unit Test #22- Translate
-    test('#22 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
-
-// Unit Test #23- Translate
-    test('#23 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
-
-// Unit Test #24- Translate
-    test('#24 - Translate', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
+    })
+*/
   })
 
-
-
   suite('Highlight tests', () => {
-// Unit Test #25- Highlight
-    test('#25 - Highlight', (done) => {
+
+// Unit Test #21- Highlight translation in Mangoes are my favorite fruit.
+/*
+    test('#21 - Highlight translation in Mangoes are my favorite fruit.', (done) => {
+      let originalText = 'Mangoes are my favorite fruit';
+      let translatedText = 'Mangoes are my <span class="hightlight">favourite</span> fruit.'; 
+      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      done();
+    })
+*/
+
+// Unit Test #22- Highlight translation in I ate yogurt for breakfast
+/*
+    test('#22 - Highlight translation in I ate yogurt for breakfast', (done) => {
       let validPuzzle = puzzlesAndSolutions[0][0];
       let completePuzzle = puzzlesAndSolutions[0][1];
       assert.equal(solver.solve(validPuzzle), completePuzzle);
       done();
       })
+*/
 
-// Unit Test #26- Highlight
-    test('#26 - Highlight', (done) => {
+// Unit Test #23- Highlight translation in We watched the footie match for a while
+/*
+    test('#23 - Highlight translation in We watched the footie match for a while', (done) => {
       let validPuzzle = puzzlesAndSolutions[0][0];
       let completePuzzle = puzzlesAndSolutions[0][1];
       assert.equal(solver.solve(validPuzzle), completePuzzle);
       done();
       })
+*/
 
-// Unit Test #27- Highlight
-    test('#27 - Highlight', (done) => {
+// Unit Test #24- Highlight translation in Paracetamol takes up to an hour to work
+/*
+    test('#24 - Translate Highlight translation in Paracetamol takes up to an hour to work', (done) => {
       let validPuzzle = puzzlesAndSolutions[0][0];
       let completePuzzle = puzzlesAndSolutions[0][1];
       assert.equal(solver.solve(validPuzzle), completePuzzle);
       done();
       })
+  })
+*/
 
-// Unit Test #29- Highlight
-    test('#29 - Highlight', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
-// Unit Test #30- Highlight
-    test('#30 - Highlight', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
-      done();
-      })
-
-
+  
 
   })
   
