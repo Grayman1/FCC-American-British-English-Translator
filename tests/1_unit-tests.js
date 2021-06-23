@@ -3,37 +3,41 @@ const assert = chai.assert;
 
 const Translator = require('../components/translator.js');
 
+let translator = new Translator();
+
 suite('Unit Tests', () => {
 
   suite('Translation tests', () => {
-/*
+
 // Unit Test #1- Translate Mangoes are my favorite fruit. to British English
     test('#1 - Translate Mangoes are my favorite fruit to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = 'Mangoes are my favorite fruit';
+      let translatedText = 'Mangoes are my favourite fruit'; 
+      console.log('U/T#1 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
     })
-*/
+
 
 
 // Unit Test #2- Translate I ate yogurt for breakfast to British English
-/*
+
     test('#2 - Translate I ate yogurt for breakfast to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = 'I ate yogurt for breakfast';
+      let translatedText = 'I ate yoghurt for breakfast'; 
+      console.log('U/T#1 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
-    });
-*/
+    })
 
 
 // Unit Test #3- We had a party at my friend's condo to British English
 /*
     test('#3 - We had a party at my friend's condo to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = 'Mangoes are my favorite fruit';
+      let translatedText = 'Mangoes are my favourite fruit'; 
+      console.log('U/T#1 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
     })
 */
@@ -214,33 +218,36 @@ suite('Unit Tests', () => {
   suite('Highlight tests', () => {
 
 // Unit Test #21- Highlight translation in Mangoes are my favorite fruit.
-/*
+
     test('#21 - Highlight translation in Mangoes are my favorite fruit.', (done) => {
       let originalText = 'Mangoes are my favorite fruit';
-      let translatedText = 'Mangoes are my <span class="hightlight">favourite</span> fruit.'; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let translatedText = 'Mangoes are my <span class="highlight">favourite</span> fruit';  
+      console.log('U/T#21 translation:',translator.translateToBritishEnglish(originalText).translationWithHighlight);
+      assert.equal(translator.translateToBritishEnglish(originalText).translationWithHighlight, translatedText);
       done();
     })
-*/
+
 
 // Unit Test #22- Highlight translation in I ate yogurt for breakfast
-/*
+
     test('#22 - Highlight translation in I ate yogurt for breakfast', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+      let originalText = 'I ate yogurt for breakfast';
+      let translatedText = 'I ate <span class="highlight">yoghurt</span> for breakfast';  
+      console.log('U/T#21 translation:',translator.translateToBritishEnglish(originalText).translationWithHighlight);
+      assert.equal(translator.translateToBritishEnglish(originalText).translationWithHighlight, translatedText);
       done();
-      })
-*/
+    })
+
 
 // Unit Test #23- Highlight translation in We watched the footie match for a while
 /*
     test('#23 - Highlight translation in We watched the footie match for a while', (done) => {
-      let validPuzzle = puzzlesAndSolutions[0][0];
-      let completePuzzle = puzzlesAndSolutions[0][1];
-      assert.equal(solver.solve(validPuzzle), completePuzzle);
+      let originalText = 'We watched the footie match for a while';
+      let translatedText = 'We watched the <span class="highlight">footie</span> match for a while';  
+      console.log('U/T#21 translation:',translator.translateToBritishEnglish(originalText).translationWithHighlight);
+      assert.equal(translator.translateToBritishEnglish(originalText).translationWithHighlight, translatedText);
       done();
-      })
+    })
 */
 
 // Unit Test #24- Highlight translation in Paracetamol takes up to an hour to work
