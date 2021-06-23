@@ -13,12 +13,11 @@ const InverseDictionary = (obj) => {
 
 
 
-
-
 class Translator {
 
-/*
+
   translateToAmericanEnglish(text) {
+    const britishToAmericanSpelling = InverseDictionary(americanToBritishSpelling);
     const dict = {...britishOnly, ...britishToAmericanSpelling};
     const titles = americanToBritishTitles;
     // Replace :colon with .period
@@ -29,7 +28,7 @@ class Translator {
       }
     return translated;
   }
-*/
+
   translateToBritishEnglish(text) {
     const dict = {...americanOnly, ...americanToBritishSpelling};
     const titles = americanToBritishTitles;

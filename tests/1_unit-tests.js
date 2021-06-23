@@ -25,32 +25,34 @@ suite('Unit Tests', () => {
     test('#2 - Translate I ate yogurt for breakfast to British English', (done) => {
       let originalText = 'I ate yogurt for breakfast';
       let translatedText = 'I ate yoghurt for breakfast'; 
-      console.log('U/T#1 translation:',translator.translateToBritishEnglish(originalText).translation);
+      console.log('U/T#2 translation:',translator.translateToBritishEnglish(originalText).translation);
       assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
     })
 
 
 // Unit Test #3- We had a party at my friend's condo to British English
-/*
-    test('#3 - We had a party at my friend's condo to British English', (done) => {
-      let originalText = 'Mangoes are my favorite fruit';
-      let translatedText = 'Mangoes are my favourite fruit'; 
-      console.log('U/T#1 translation:',translator.translateToBritishEnglish(originalText).translation);
+
+    test("#3 - We had a party at my friend's condo to British English", (done) => {
+      let originalText = "We had a party at my friend's condo";
+      let translatedText = "We had a party at my friend's flat"; 
+      console.log('U/T#3 translation:',translator.translateToBritishEnglish(originalText).translation);
       assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
     })
-*/
+
 
 // Unit Test #4- Translate Can you toss this in the trashcan for me? to British English
-/*
+
     test('#4 - Translate Can you toss this in the trashcan for me? to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = "Can you toss this in the trashcan for me?";
+      let translatedText = "Can you toss this in the bin for me?"; 
+      console.log('U/T#3 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
-    })
-*/
+    });
+    
+
 
 
 // Unit Test #5- Translate The parking lot was full to British English
@@ -115,14 +117,16 @@ suite('Unit Tests', () => {
 */
 
 // Unit Test #11- Translate We watched the footie match for a while to American English
-/*
+
     test('#11 - Translate We watched the footie match for a while to American English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = "We watched the footie match for a while";
+      let translatedText = "We watched the soccer match for a while"; 
+      console.log('U/T#11 translation:',translator.translateToAmericanEnglish(originalText).translation);
+      assert.equal(translator.translateToAmericanEnglish(originalText).translation, translatedText);
       done();
-    })
-*/
+    });
+    
+
 
 // Unit Test #12- Translate Paracetamol takes up to an hour to work. to American English
 /*
