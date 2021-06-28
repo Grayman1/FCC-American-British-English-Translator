@@ -3,7 +3,8 @@ const americanToBritishSpelling = require('./american-to-british-spelling.js');
 const americanToBritishTitles = require("./american-to-british-titles.js")
 const britishOnly = require('./british-only.js')
 
-// Reverse dictionary for British To American Spellng translation
+// Create inverse dictionary for British To American Spellng translation (using single dictionary)
+
 const InverseDictionary = (obj) => {
   return Object.assign(
     {},
@@ -52,6 +53,30 @@ class Translator {
     const noTranslation = 'Everything looks good to me!';
     console.log('lowerText: ', lowerText,'locale: ', locale);
 
+
+/*  TRANSLATING WORDS WITH SPACES IS MULTI-STEP PROCEDURE:
+  1. SEARCH DICTIONARY AND FILTER OUT WORDS WITH SPACES
+  2. SEARCH TEXT STRING FOR MATCHING WORDS WITH SPACES, SELECT FR REPLACEMENT;
+  3. REPLACE IDENTIFIED WORDS
+
+*/
+
+
+// SEARCH DICTIONARY AND FILTER OUT WORDS WITH SPACES
+    const spacedWords = Object.fromEntries(
+      Object.entries(dict).filter(([k,v]) => k.includes(' ')) 
+      );
+    console.log('#2 - matchesMap:', matchesMap);
+
+// SEARCH TEXT STRING FOR MATCHING WORDS WITH SPACES, SELECT FR REPLACEMENT;
+    Object.entries(spacedWords).map(([k, v]) => {
+      if (lowerText.includes(k)) {
+        matchesMap[k] = v;
+      }
+      console.log('#3 - matchesMap:', matchesMap);
+    });
+
+
 /*
 // Search for titles and add to matchesMap object
     Object.entries(titles).map(([k,v]) => {
@@ -59,20 +84,6 @@ class Translator {
         matchesMap[k] = v.charAt(0).toUpperCase() + v.slice(1);
       }
       console.log('#1 - matchesMap:', matchesMap);
-    });
-
-// Filter words with spaces from current dictionary
-    const wordsWithSpace = Object.fromEntries(
-      Object.entries(dict).filter(([k,v]) => k.includes(' ')) 
-      );
-    console.log('#2 - matchesMap:', matchesMap);
-
-// Search for spaced word matches and at to matchesMap object
-    Object.entries(wordsWithSpace).map(([k, v]) => {
-      if (lowerText.includes(k)) {
-        matchesMap[k] = v;
-      }
-      console.log('#3 - matchesMap:', matchesMap);
     });
 */
 
