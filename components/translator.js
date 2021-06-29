@@ -5,7 +5,7 @@ const britishOnly = require('./british-only.js')
 
 // Create inverse dictionary for British To American Spellng translation (using single dictionary)
 
-const InverseDictionary = (obj) => {
+const inverseDictionary = (obj) => {
   return Object.assign(
     {},
     ...Object.entries(obj).map(([k, v]) => ({ [v]: k }))
@@ -16,14 +16,14 @@ const InverseDictionary = (obj) => {
 
 class Translator {
 
-
   translateToAmericanEnglish(text) {
-    const britishToAmericanSpelling = InverseDictionary(americanToBritishSpelling);
+    
+    
+    const britishToAmericanSpelling = inverseDictionary(americanToBritishSpelling);
     const dict = {...britishOnly, ...britishToAmericanSpelling};
-    const titles = americanToBritishTitles;
-    // Replace :colon with .period
+    // BRIT-AMER: NEW REGEX TO REPLACE (.) PERIOD WITH (:) COLON
     const timeRegex = /([1-9]|1[012].[0-5][0-9])/g;
-    const translated = this.translate(text, dict, titles, timeRegex, 'toAmerican');
+    const translated = this.translate(text, dict, timeRegex, 'toAmerican');
     if (!translated) {
       return text;
       }
@@ -32,12 +32,11 @@ class Translator {
 
   translateToBritishEnglish(text) {
     const dict = {...americanOnly, ...americanToBritishSpelling};
-    const titles = americanToBritishTitles;
-    // Replace :colon with .period
+    // AMER-BRIT: NEW REGEX TO REPLACE (:) COLON WITH (.) PERIOD
     const timeRegex = /([1-9]|1[012]):[0-5][0-9]/g;
     console.log('original text: ', text);
 
-    const translated = this.translate(text, dict, titles, timeRegex, 'toBritish');
+    const translated = this.translate(text, dict, timeRegex, 'toBritish');
     console.log('translated text: ',translated);
 
     if (!translated) {
@@ -47,18 +46,16 @@ class Translator {
     return translated;
   }
 
-  translate(text, dict, titles, timeRegex, locale) {
-    const lowerText = text.toLowerCase();
-    const matchesMap = {};
+  translate(text, dict, timeRegex, locale) {
+    const translatedTextLower = text.toLowerCase();
+    const trackReplacements = {};
     const noTranslation = 'Everything looks good to me!';
-    console.log('lowerText: ', lowerText,'locale: ', locale);
-
+    console.log('translatedTextLower: ', translatedTextLower,'locale: ', locale);
 
 /*  TRANSLATING WORDS WITH SPACES IS MULTI-STEP PROCEDURE:
   1. SEARCH DICTIONARY AND FILTER OUT WORDS WITH SPACES
   2. SEARCH TEXT STRING FOR MATCHING WORDS WITH SPACES, SELECT FR REPLACEMENT;
-  3. REPLACE IDENTIFIED WORDS
-
+  3. REPLACE IDENTIFIED WORDS;
 */
 
 
@@ -66,58 +63,78 @@ class Translator {
     const spacedWords = Object.fromEntries(
       Object.entries(dict).filter(([k,v]) => k.includes(' ')) 
       );
-    console.log('#2 - matchesMap:', matchesMap);
+    
 
 // SEARCH TEXT STRING FOR MATCHING WORDS WITH SPACES, SELECT FR REPLACEMENT;
     Object.entries(spacedWords).map(([k, v]) => {
-      if (lowerText.includes(k)) {
-        matchesMap[k] = v;
+      if (translatedTextLower.includes(k)) {
+        trackReplacements[k] = v;
+  //    console.log('#1 - trackReplacements:', trackReplacements[k]);
       }
-      console.log('#3 - matchesMap:', matchesMap);
+      
+    });
+
+// SEARCH ORIGINAL TEXT STRING FOR TITLES, FILTER AND MAP TO trackReplacements OBJECT
+
+  let selectTitles = {};
+  if (locale === 'toBritish' ? selectTitles = americanToBritishTitles : selectTitles = inverseDictionary(americanToBritishTitles));
+
+  Object.entries(selectTitles).map(([k,v]) => {
+      if (translatedTextLower.includes(k)) {
+        trackReplacements[k] = v.charAt(0).toUpperCase() + v.slice(1);
+      console.log('#2 - trackReplacements:', trackReplacements[k]);
+      }
+   
     });
 
 
+
+
 /*
-// Search for titles and add to matchesMap object
     Object.entries(titles).map(([k,v]) => {
-      if (lowerText.includes(k)) {
-        matchesMap[k] = v.charAt(0).toUpperCase() + v.slice(1);
+      if (translatedTextLower.includes(k)) {
+        trackReplacements[k] = v.charAt(0).toUpperCase() + v.slice(1);
+      console.log('#2 - trackReplacements:', trackReplacements[k]);
       }
-      console.log('#1 - matchesMap:', matchesMap);
+   
     });
 */
 
-// Search for individual word matches adn add to matchesMap
-    lowerText.match(/(\w+([-'])(\w+)?['-]?(\w+))|\w+/g).forEach((word) => {
-      if (dict[word]) matchesMap[word] = dict[word];
-      console.log(dict[word], matchesMap[word]);
+
+// INDIVIDUAL WORD MATCHES
+// SEARCH FOR INDIVIDUAL WORD MATCHES AND ADD TO trackReplacements OBJECT
+    const indivMatchRegex = /(\w+([-'])(\w+)?['-]?(\w+))|\w+/g;
+    translatedTextLower.match(indivMatchRegex).forEach((word) => {
+      if (dict[word]) trackReplacements[word] = dict[word];
+      console.log(dict[word], trackReplacements[word]);
+  //    console.log('#3 - trackReplacements:', trackReplacements[word]);
     });
-    console.log('#4 - matchesMap:', matchesMap);
+    
 
 /*
-// Search for time matches and add to matchesMap object
-    const matchedTimes = lowerText.match(timeRegex);
+// Search for time matches and add to trackReplacements object
+    const matchedTimes = translatedTextLower.match(timeRegex);
 
     if (matchedTimes) {
     matchedTimes.map((e) => {
       if(locale === 'toBritish') {
-        return(matchesMap[e] = e.replace(':', '.'));        
+        return(trackReplacements[e] = e.replace(':', '.'));        
       }
-      return (matchesMap[e] = e.replace('.', ':'));
+      return (trackReplacements[e] = e.replace('.', ':'));
     })
     }
 */
 
 // No Matches
-    console.log('#5 - matchesMap:', matchesMap);
-    if (Object.keys(matchesMap).length === 0) return null;
+//    console.log('#4 - trackReplacements:', trackReplacements);
+    if (Object.keys(trackReplacements).length === 0) return null;
 
 // Return logic
     
 
-    const translation = this.replaceAll(text, matchesMap);
+    const translation = this.replaceAll(text, trackReplacements);
 
-    const translationWithHighlight = this.replaceAllWithHighlight(text, matchesMap);
+    const translationWithHighlight = this.replaceAllWithHighlight(text, trackReplacements);
 
 //    return translation;
 //    return [translation, translationWithHighlight];
@@ -131,19 +148,19 @@ class Translator {
 
   }  
 
-  replaceAll(text, matchesMap) {
-    // matchesMap:>> {favorite : 'favourite'}
+  replaceAll(text, trackReplacements) {
+    // trackReplacements:>> {favorite : 'favourite'}
     // text :>> Mangoes are my favorite fruit.
-    const re = new RegExp(Object.keys(matchesMap).join("|"), "gi");
-    return text.replace(re, (matched) => matchesMap[matched.toLowerCase()]);
+    const re = new RegExp(Object.keys(trackReplacements).join("|"), "gi");
+    return text.replace(re, (matched) => trackReplacements[matched.toLowerCase()]);
   }
   
-  replaceAllWithHighlight(text,matchesMap) {
-    // matchesMap:>> {favorite : 'favourite'}
+  replaceAllWithHighlight(text,trackReplacements) {
+    // trackReplacements:>> {favorite : 'favourite'}
     // text :>> Mangoes are my favorite fruit.
-    const re = new RegExp(Object.keys(matchesMap).join('|'), 'gi');
+    const re = new RegExp(Object.keys(trackReplacements).join('|'), 'gi');
     return text.replace(re, (matched) => {
-      return `<span class="highlight">${matchesMap[matched.toLowerCase()]}</span>`;
+      return `<span class="highlight">${trackReplacements[matched.toLowerCase()]}</span>`;
     });
   }
   

@@ -47,7 +47,7 @@ suite('Unit Tests', () => {
     test('#4 - Translate Can you toss this in the trashcan for me? to British English', (done) => {
       let originalText = "Can you toss this in the trashcan for me?";
       let translatedText = "Can you toss this in the bin for me?"; 
-      console.log('U/T#3 translation:',translator.translateToBritishEnglish(originalText).translation);
+      console.log('U/T#4 translation:',translator.translateToBritishEnglish(originalText).translation);
       assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
     });
@@ -84,24 +84,26 @@ suite('Unit Tests', () => {
 
 
 // Unit Test #8- Translate No Mr. Bond, I expect you to die to British English
-/*
+
     test('#8 - Translate No Mr. Bond, I expect you to die to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = "No Mr. Bond, I expect you to die";
+      let translatedText = "No Mr Bond, I expect you to die"; 
+      console.log('U/T#8 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
-    })
-*/
+    });
+
 
 // Unit Test #9- Translate Dr. Grosh will see you now to British English
-/*
+
     test('#9 - Translate Dr. Grosh will see you now to British English', (done) => {
-      let originalText = '';
-      let translatedText = ''; 
-      assert.equal(translator.translatetoBritishEnglish(originalText), translatedText);
+      let originalText = "Dr. Grosh will see you now";
+      let translatedText = "Dr Grosh will see you now"; 
+      console.log('U/T#9 translation:',translator.translateToBritishEnglish(originalText).translation);
+      assert.equal(translator.translateToBritishEnglish(originalText).translation, translatedText);
       done();
-    })
-*/
+    });
+
 
 // Unit Test #10- Translate Lunch is at 12:15 today to British English
 /*
@@ -192,26 +194,26 @@ suite('Unit Tests', () => {
 
 
 // Unit Test #18- Translate Have you met Mrs Kalyani? to American English
-/*
+
     test('#18 - Translate Have you met Mrs Kalyani? to American English', (done) => {
-      let originalText = 'Paracetamol takes up to an hour to work';
-      let translatedText = 'Tylenol takes up to an hour to work'; 
-      console.log('U/T#12 translation:',translator.translateToAmericanEnglish(originalText).translation);
+      let originalText = 'Have you met Mrs Kalyani?';
+      let translatedText = 'Have you met Mrs. Kalyani?'; 
+      console.log('U/T#18 translation:',translator.translateToAmericanEnglish(originalText).translation);
       assert.equal(translator.translateToAmericanEnglish(originalText).translation, translatedText);
       done();
     })
-*/
+
 
 // Unit Test #19- Translate Prof Joyner of King's College, London. to American English
-/*
-    test('#19 - Translate Prof Joyner of King's College, London. to American English', (done) => {
-      let originalText = 'Paracetamol takes up to an hour to work';
-      let translatedText = 'Tylenol takes up to an hour to work'; 
-      console.log('U/T#12 translation:',translator.translateToAmericanEnglish(originalText).translation);
+
+    test("#19 - Translate Prof Joyner of King's College, London. to American English", (done) => {
+      let originalText = "Prof Joyner of King's College, London.";
+      let translatedText = "Prof. Joyner of King's College, London."; 
+      console.log('U/T#19 translation:',translator.translateToAmericanEnglish(originalText).translation);
       assert.equal(translator.translateToAmericanEnglish(originalText).translation, translatedText);
       done();
     })
-*/
+
 
 // Unit Test #20- Translate Tea time is usually around 4 or 4.30. to American English
 /*
