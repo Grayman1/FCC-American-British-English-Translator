@@ -13,17 +13,15 @@ const inverseDictionary = (obj) => {
 };
 
 
-
 class Translator {
 
-  translateToAmericanEnglish(text) {
-    
+  translateToAmericanEnglish(text) {    
     
     const britishToAmericanSpelling = inverseDictionary(americanToBritishSpelling);
     const dict = {...britishOnly, ...britishToAmericanSpelling};
     // BRIT-AMER: NEW REGEX TO REPLACE (.) PERIOD WITH (:) COLON
-    const timeRegex = /([1-9]|1[012].[0-5][0-9])/g;
-    const translated = this.translate(text, dict, timeRegex, 'toAmerican');
+  //  const timeRegex = /([1-9]|1[012].[0-5][0-9])/g;
+    const translated = this.translate(text, dict, 'toAmerican');
     if (!translated) {
       return text;
       }
@@ -33,11 +31,11 @@ class Translator {
   translateToBritishEnglish(text) {
     const dict = {...americanOnly, ...americanToBritishSpelling};
     // AMER-BRIT: NEW REGEX TO REPLACE (:) COLON WITH (.) PERIOD
-    const timeRegex = /([1-9]|1[012]):[0-5][0-9]/g;
-    console.log('original text: ', text);
+  //  const timeRegex = /([1-9]|1[012]):[0-5][0-9]/g;
+//    console.log('original text: ', text);
 
-    const translated = this.translate(text, dict, timeRegex, 'toBritish');
-    console.log('translated text: ',translated);
+    const translated = this.translate(text, dict, 'toBritish');
+    console.log('translated text: ', typeof(translated), translated.translationWithHighlight);
 
     if (!translated) {
       return text;
@@ -46,11 +44,11 @@ class Translator {
     return translated;
   }
 
-  translate(text, dict, timeRegex, locale) {
+  translate(text, dict, locale) {
     const translatedTextLower = text.toLowerCase();
     const trackReplacements = {};
     const noTranslation = 'Everything looks good to me!';
-    console.log('translatedTextLower: ', translatedTextLower,'locale: ', locale);
+//    console.log('translatedTextLower: ', translatedTextLower,'locale: ', locale);
 
 /*  TRANSLATING WORDS WITH SPACES IS MULTI-STEP PROCEDURE:
   1. SEARCH DICTIONARY AND FILTER OUT WORDS WITH SPACES
@@ -64,7 +62,6 @@ class Translator {
       Object.entries(dict).filter(([k,v]) => k.includes(' ')) 
       );
     
-
 // SEARCH TEXT STRING FOR MATCHING WORDS WITH SPACES, SELECT FR REPLACEMENT;
     Object.entries(spacedWords).map(([k, v]) => {
       if (translatedTextLower.includes(k)) {
@@ -74,7 +71,7 @@ class Translator {
       
     });
 
-// SEARCH ORIGINAL TEXT STRING FOR TITLES, FILTER AND MAP TO trackReplacements OBJECT
+// SEARCH ORIGINAL TEXT STRING FOR TITLES; FILTER AND MAP TO trackReplacements OBJECT
 
   let selectTitles = {};
   if (locale === 'toBritish' ? selectTitles = americanToBritishTitles : selectTitles = inverseDictionary(americanToBritishTitles));
@@ -82,38 +79,26 @@ class Translator {
   Object.entries(selectTitles).map(([k,v]) => {
       if (translatedTextLower.includes(k)) {
         trackReplacements[k] = v.charAt(0).toUpperCase() + v.slice(1);
-      console.log('#2 - trackReplacements:', trackReplacements[k]);
+   //   console.log('#2 - trackReplacements:', trackReplacements[k]);
       }
    
     });
-
-
-
-
-/*
-    Object.entries(titles).map(([k,v]) => {
-      if (translatedTextLower.includes(k)) {
-        trackReplacements[k] = v.charAt(0).toUpperCase() + v.slice(1);
-      console.log('#2 - trackReplacements:', trackReplacements[k]);
-      }
-   
-    });
-*/
-
 
 // INDIVIDUAL WORD MATCHES
 // SEARCH FOR INDIVIDUAL WORD MATCHES AND ADD TO trackReplacements OBJECT
     const indivMatchRegex = /(\w+([-'])(\w+)?['-]?(\w+))|\w+/g;
     translatedTextLower.match(indivMatchRegex).forEach((word) => {
       if (dict[word]) trackReplacements[word] = dict[word];
-      console.log(dict[word], trackReplacements[word]);
-  //    console.log('#3 - trackReplacements:', trackReplacements[word]);
+    //  console.log(dict[word], trackReplacements[word]);
+//      console.log('#3 - trackReplacements:', trackReplacements);
     });
     
 
-/*
 // Search for time matches and add to trackReplacements object
-    const matchedTimes = translatedTextLower.match(timeRegex);
+    let selectTime = '';
+    if (locale === 'toBritish' ? selectTime = /([1-9]|1[012]):[0-5][0-9]/g : selectTime = /([1-9]|1[012]).[0-5][0-9]/g);
+
+    const matchedTimes = translatedTextLower.match(selectTime);
 
     if (matchedTimes) {
     matchedTimes.map((e) => {
@@ -123,7 +108,7 @@ class Translator {
       return (trackReplacements[e] = e.replace('.', ':'));
     })
     }
-*/
+
 
 // No Matches
 //    console.log('#4 - trackReplacements:', trackReplacements);
@@ -138,10 +123,11 @@ class Translator {
 
 //    return translation;
 //    return [translation, translationWithHighlight];
+    
 
     return {
       text,
-      // FOR TESTING PURPOSES ONLY
+      // RETURN NORMAL AND HIGHLIGHTED TRANSLATIONS
       translation: text === translation ? noTranslation : translation, 
       translationWithHighlight: text === translation ? noTranslation : translationWithHighlight, 
     };
@@ -162,8 +148,7 @@ class Translator {
     return text.replace(re, (matched) => {
       return `<span class="highlight">${trackReplacements[matched.toLowerCase()]}</span>`;
     });
-  }
-  
+  }  
 }
 
 module.exports = Translator;
